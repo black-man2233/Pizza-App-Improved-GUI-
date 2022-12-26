@@ -1,0 +1,232 @@
+﻿<UserControl x:Class="Page_Navigation_App.View.Home"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Page_Navigation_App.View"
+             mc:Ignorable="d" 
+              xmlns:vm="clr-namespace:Page_Navigation_App.ViewModel"
+             d:DesignHeight="600"
+             d:DesignWidth="900"
+             Style="{StaticResource Page_Stye}">
+
+    <UserControl.DataContext>
+        <vm:HomeVM/>
+    </UserControl.DataContext>
+
+    <Grid Background="#212529">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--// Pizza Menu List//-->
+
+        <ListBox ItemsSource="{Binding PizzaList}"
+                 Grid.Row="0" 
+                 Grid.RowSpan="3"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="3"
+                 Padding="10"
+                 BorderThickness="3"
+                 BorderBrush="Transparent"
+                 ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                 ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                 Background="#FF181818" 
+                 d:ItemsSource="{d:SampleData ItemCount=20}">
+            
+            <ListBox.ItemTemplate >
+                <DataTemplate>
+                    <Grid >
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="340"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+
+                        <Image Source="{Binding imageUrl}" 
+                               Margin="0.2,0,10,0"
+                               Grid.Column="0"/>
+                        
+                        <Grid Width="340" Grid.Column="1" HorizontalAlignment="Left">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="140"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="{Binding Name}"
+                                       Grid.Column="0"
+                                       Foreground="#DBDBDB"
+                                       FontSize="22"
+                                       HorizontalAlignment="Left"
+                                       FontFamily="/Fonts/#Rubik Medium"/>
+
+                            <TextBlock Text="{Binding Price,
+                                StringFormat=' {0} kr.'}"
+                                       Grid.Column="1"
+                                       Foreground="#CED565"
+                                       FontSize="22"
+                                       Width="140"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       FontFamily="/Fonts/#Rubik Medium"/>
+                        </Grid>
+
+
+
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
+
+        <!--// Sides Menu List //-->
+
+        <ListBox ItemsSource="{Binding Sides}"
+                 Grid.Column="4"
+                 Grid.ColumnSpan="3"
+                 Grid.Row="0" 
+                 Grid.RowSpan="3"
+                 Padding="10"
+                 BorderThickness="3"
+                 BorderBrush="Transparent"
+                 ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                 ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                 Background="#FF181818" 
+                 d:ItemsSource="{d:SampleData ItemCount=20}">
+
+            <ListBox.ItemTemplate >
+                <DataTemplate>
+                    <Grid >
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="340"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+
+                        <Image Source="{Binding imageUrl}" 
+                               Margin="0.2,0,10,0"
+                               Grid.Column="0"/>
+
+                        <Grid Width="340" Grid.Column="1" HorizontalAlignment="Left">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="140"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="{Binding Name}"
+                                       Grid.Column="0"
+                                       Foreground="#DBDBDB"
+                                       FontSize="22"
+                                       HorizontalAlignment="Left"
+                                       FontFamily="/Fonts/#Rubik Medium"/>
+
+                            <TextBlock Text="{Binding Price,
+                                StringFormat=' {0} kr.'}"
+                                       Grid.Column="1"
+                                       Foreground="#CED565"
+                                       FontSize="22"
+                                       Width="140"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       FontFamily="/Fonts/#Rubik Medium"/>
+                        </Grid>
+
+
+
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
+
+        <!--// Cart List //-->
+
+        <ListBox ItemsSource="{Binding Cart}"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="5"
+                 Grid.Row="3" 
+                 Grid.RowSpan="3"
+                 Padding="10"
+                 BorderThickness="3"
+                 BorderBrush="Transparent"
+                 ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                 ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                 Background="#FF181818" 
+                 d:ItemsSource="{d:SampleData ItemCount=20}">
+
+            <ListBox.ItemTemplate >
+                <DataTemplate>
+                    <Grid >
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="340"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+
+                        <Image Source="{Binding imageUrl}" 
+                               Margin="0.2,0,10,0"
+                               Grid.Column="0"/>
+
+                        <Grid Width="340" Grid.Column="1" HorizontalAlignment="Left">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="140"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="{Binding Name}"
+                                       Grid.Column="0"
+                                       Foreground="#DBDBDB"
+                                       FontSize="22"
+                                       HorizontalAlignment="Left"
+                                       FontFamily="/Fonts/#Rubik Medium"/>
+
+                            <TextBlock Text="{Binding Price,
+                                StringFormat=' {0} kr.'}"
+                                       Grid.Column="1"
+                                       Foreground="#CED565"
+                                       FontSize="22"
+                                       Width="140"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       FontFamily="/Fonts/#Rubik Medium"/>
+                        </Grid>
+
+
+
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
+
+
+    </Grid>
+</UserControl>
+
+    
