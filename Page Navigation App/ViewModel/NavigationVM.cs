@@ -14,20 +14,17 @@ namespace Page_Navigation_App.ViewModel
         }
         #region ICommands
         public ICommand HomeCommand { get; set; }
-        public ICommand CustomerCommand { get; set; }
-        public ICommand ProductCommand { get; set; }
+        public ICommand CartCommand { get; set; }
         #endregion
 
         #region CommandsFunction
         private void Home(Object obj) => CurrentView = new HomeVM();
-        private void Customer(Object obj) => CurrentView = new CustomersVM();
-        private void Product(Object obj) => CurrentView = new ProductsVM();
+        private void Product(Object obj) => CurrentView = new CartVM();
         #endregion
         public NavigationVM()
         {
             HomeCommand = new RelayCommand(Home);
-            CustomerCommand = new RelayCommand(Customer);
-            ProductCommand = new RelayCommand(Product);
+            CartCommand = new RelayCommand(Product);
 
             //Startup Page
             this.CurrentView = new HomeVM();

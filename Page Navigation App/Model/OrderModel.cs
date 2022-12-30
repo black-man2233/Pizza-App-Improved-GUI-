@@ -27,6 +27,32 @@ namespace Page_Navigation_App.Model
             Extras = e;
         }
 
+
+        public OrderModel(PizzaModel p)
+        {
+            imageUrl = p.imageUrl;
+            Id = p.Id;
+            Name = p.Name;
+            Price = p.Price;
+            Total = p.Total;
+            Description = p.Description;
+            Toppings = null;
+            Extras = null;
+        }
+
+
+        public OrderModel(SidesModel s)
+        {
+            imageUrl = s.imageUrl;
+            Id = s.Id;
+            Name = s.Name;
+            Price = s.Price;
+            Total = s.Price;
+            Description = s.Description;
+            Toppings = null;
+            Extras = null;
+        }
+
         public object Clone()
         {
             return new OrderModel(this.imageUrl, this.Id, this.Name, this.Price, this.Total, this.Description, this.Toppings, this.Extras);

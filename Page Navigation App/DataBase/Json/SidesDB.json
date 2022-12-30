@@ -4,7 +4,7 @@
     "name": "Kildevand",
     "price": 20,
     "description": "Det er bare vand",
-    "capacity": [
+    "sizes": [
       {
         "name": "small",
         "price": 18,
@@ -27,7 +27,7 @@
     "name": "Coca Cola",
     "price": 15,
     "description": "Drikken indeholder ofte kulsyre, koffein, fosforsyre og karamel. ",
-    "capacity": [
+    "sizes": [
       {
         "name": "small",
         "price": 15,
@@ -50,7 +50,7 @@
     "name": "Fanta Berry",
     "price": 13,
     "description": "Fanta Berry er en læskedrik med kulsyre og med frisk smag af blåbær og hindbær. Koffeinfri",
-    "capacity": [
+    "sizes": [
       {
         "name": "small",
         "price": 8,
@@ -73,7 +73,7 @@
     "name": "Faxe Kondi",
     "price": 10,
     "description": ". Den indeholder glukose, også kaldet druesukker",
-    "capacity": [
+    "sizes": [
       {
         "name": "small",
         "price": 8,
@@ -96,7 +96,7 @@
     "name": "Spiritus",
     "price": 49,
     "description": "Alkoholiske drikkevarer med en alkoholprocent på over ca. 25%.",
-    "capacity": [
+    "sizes": [
       {
         "name": "small",
         "price": 8,

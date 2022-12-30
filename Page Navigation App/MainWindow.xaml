@@ -49,8 +49,6 @@
                         <Image Source="file:///C:/Users/Kevin/Downloads/icons8-home-page-96.png"
                                    Style="{StaticResource Image_Style}"/>
 
-                        <!--<TextBlock Text="StartSide"
-                                       Style="{StaticResource Text_Style}"/>-->
                     </Grid>
 
                 </Menu:Btn>
@@ -58,14 +56,11 @@
                 <!--// Products //-->
 
                 <Menu:Btn Style="{StaticResource BtnStyle}"
-                              Command="{Binding ProductCommand}"
+                              Command="{Binding CartCommand}"
                               Width="100">
                     <Grid>
-                        <Image Source="file:///C:/Users/Kevin/Downloads/icons8-checkout-100.png"
+                        <Image Source="file:///C:/Users/Kevin/Downloads/Page-Navigation-using-MVVM-main/Page-Navigation-using-MVVM-main/Images/img_order.png"
                                    Style="{StaticResource Image_Style}"/>
-
-                        <!--<TextBlock Text="Products"
-                                       Style="{StaticResource Text_Style}"/>-->
                     </Grid>
 
                 </Menu:Btn>
@@ -81,14 +76,15 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="55"/>
-                <RowDefinition/>
+                <RowDefinition Height="500"/>
             </Grid.RowDefinitions>
 
             <Button x:Name="CloseApp"
                 Style="{StaticResource ExitApp}"
                 Click="CloseApp_Click" />
 
-            <ContentControl Content="{Binding CurrentView}" Grid.Row="1"/>
+            <ContentControl Content="{Binding CurrentView}" 
+                            Grid.Row="1"/>
 
         </Grid>
 

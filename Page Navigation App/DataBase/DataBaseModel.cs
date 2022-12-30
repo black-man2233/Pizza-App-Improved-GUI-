@@ -14,8 +14,10 @@ namespace PizzaApp_WPF.Model
 
 
         ////Toppings
-        //private readonly static string _toppingsPath = @"../../../DataBase/Json/PizzasDB.json";
-        //public ObservableCollection<PizzaModel> toppings = JsonConvert.DeserializeObject<ObservableCollection<PizzaModel>>(File.ReadAllText(_pPath));
+        //PizzaList
+        private ObservableCollection<SidesModel> _sides = JsonConvert.DeserializeObject<ObservableCollection<SidesModel>>(File.ReadAllText(@"C:\Users\Kevin\source\repos\Page Navigation App\Page Navigation App\DataBase\Json\SidesDB.json"));
+        public ObservableCollection<SidesModel> Sides { get => this._sides; }
+
 
 
 

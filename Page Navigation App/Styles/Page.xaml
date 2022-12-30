@@ -7,7 +7,7 @@
         <Setter Property="RenderTransform">
             <Setter.Value>
                 <TranslateTransform X="0"
-                                    Y="50"/>
+                                    Y="0"/>
             </Setter.Value>
         </Setter>
 
@@ -42,7 +42,6 @@
 
 
         </Style.Triggers>
-
 
 
     </Style>
