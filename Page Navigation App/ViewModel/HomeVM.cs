@@ -64,10 +64,12 @@ namespace Page_Navigation_App.ViewModel
             if (sender is PizzaModel p)
             {
                 this.Cart.Add(new OrderModel(p));
+                NavigationVM.ItemsCountUpdater();
             }
             if (sender is SidesModel s)
             {
                 this.Cart.Add(new OrderModel(s));
+                NavigationVM.ItemsCountUpdater();
             }
         }
 

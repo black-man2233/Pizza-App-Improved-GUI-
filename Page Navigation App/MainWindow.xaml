@@ -56,12 +56,21 @@
                 <!--// Products //-->
 
                 <Menu:Btn Style="{StaticResource BtnStyle}"
-                              Command="{Binding CartCommand}"
-                              Width="100">
-                    <Grid>
+                              Command="{Binding CartCommand}">
+                    <StackPanel Orientation="Vertical"
+                                Width="100"
+                                HorizontalAlignment="Left">
                         <Image Source="file:///C:/Users/Kevin/Downloads/Page-Navigation-using-MVVM-main/Page-Navigation-using-MVVM-main/Images/img_order.png"
                                    Style="{StaticResource Image_Style}"/>
-                    </Grid>
+
+                        <TextBlock Text="{Binding TotalCartItems, UpdateSourceTrigger=PropertyChanged}"
+                                   Style="{StaticResource Menu_Price_Style}"
+                                   FontSize="12"
+                                   HorizontalAlignment="Left"
+                                   Margin="52,-5,0,0"
+                                   MinWidth="20"
+                                   MinHeight="20"/>
+                    </StackPanel>
 
                 </Menu:Btn>
 
@@ -71,7 +80,7 @@
 
 
         <!--// Current View //-->
-        
+
         <Grid Grid.Column="1" Margin="20,0,0,0" >
 
             <Grid.RowDefinitions>

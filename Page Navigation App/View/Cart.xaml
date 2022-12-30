@@ -5,8 +5,8 @@
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
 			 xmlns:local="clr-namespace:Page_Navigation_App.View"
 			 xmlns:vm="clr-namespace:Page_Navigation_App.ViewModel"
-        xmlns:Menu="clr-namespace:Page_Navigation_App.Utilities"
-			 mc:Ignorable="d" 
+        xmlns:Menu="clr-namespace:Page_Navigation_App.Utilities" xmlns:Behaviors="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d" 
 			 d:DesignHeight="600"
 			 d:DesignWidth="900"
 			 Style="{StaticResource Page_Stye}"
@@ -20,25 +20,24 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="120"/>
         </Grid.ColumnDefinitions>
-
-
-        <ListBox ItemsSource="{Binding CartItems}"
+        
+        <ListBox x:Name="listBox" ItemsSource="{Binding CartItems}"
 				 Grid.Column="0"
 				 Padding="20"
-				 BorderThickness="3"
 				 BorderBrush="Transparent"
 				 ScrollViewer.HorizontalScrollBarVisibility="Hidden"
 				 ScrollViewer.VerticalScrollBarVisibility="Hidden"
-				 Background="#FF181818" 
+				 Background="#FF181818"
 				 d:ItemsSource="{d:SampleData ItemCount=20}">
+
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="40"/>
-                            <ColumnDefinition Width="630"/>
+                            <ColumnDefinition Width="700"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30"/>
@@ -53,7 +52,8 @@
 							   Margin="0.2,0,10,0"
 							   Grid.Column="0"/>
 
-                        <Grid Width="630" Grid.Column="1" HorizontalAlignment="Left">
+                        <Grid Width="630" Grid.Column="1" 
+                              HorizontalAlignment="Left">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="200"/>
                                 <ColumnDefinition Width="140"/>
@@ -62,21 +62,13 @@
 
                             <TextBlock Text="{Binding Name}"
 									   Grid.Column="0"
-									   Foreground="#DBDBDB"
-									   FontSize="22"
-									   HorizontalAlignment="Left"
-									   FontFamily="/Fonts/#Rubik Medium"/>
+									   Style="{StaticResource Menu_Title_Style}"/>
 
                             <TextBlock Text="{Binding Price,
 								StringFormat=' {0} kr.'}"
 									   Grid.Column="1"
-									   Foreground="#CED565"
-									   FontSize="22"
-									   Width="140"
-									   HorizontalAlignment="Left"
-									   VerticalAlignment="Center"
-									   FontFamily="/Fonts/#Rubik Medium"/>
-                            
+									  Style="{StaticResource Menu_Price_Style}"/>
+
                             <TextBlock Text="{Binding Description}"
 									   Grid.Column="2"
 									   Style="{StaticResource Menu_Title_Style}"/>
@@ -92,40 +84,42 @@
 
         <!--// Navigation Panel //-->
 
-        <Grid HorizontalAlignment="Left"
+        <Grid HorizontalAlignment="Right"
               Grid.Column="1"
-              Width="200">
+              Width="100"
+              VerticalAlignment="Center">
             <Border Background="#272B2F"
                         CornerRadius="20,0,0,20"/>
 
-            <StackPanel Height="400"
-                        Width="100"
-                        HorizontalAlignment="Center"
-                        Orientation="Vertical">
+            <Grid Margin="0,90,0,90">
 
-                <!--// Slet //-->
-                <Button Command="{Binding DeleteFromCartCommand}"
+                <StackPanel>
+                    
+                    <!--// Slet //-->
+                    <Button Command="{Binding DeleteFromCartCommand}"
+                        CommandParameter="{Binding SelectedItem, ElementName=listBox}"
                         Style="{StaticResource CartBtn}">
 
-                    <Grid>
-                        <Image Source="file:///C:/Users/Kevin/Downloads/trash.png"/>
-                    </Grid>
+                        <Grid>
+                            <Image Source="file:///C:/Users/Kevin/Downloads/trash.png"/>
+                        </Grid>
 
-                </Button>
+                    </Button>
 
-                <!--// Redigere //-->
+                    <!--// Redigere //-->
 
-                <Button Command="{Binding DeleteFromCartCommand}"
+                    <Button Command="{Binding EditPizzaCommand}"
+                        CommandParameter="{Binding SelectedItem, ElementName=listBox}"
                         Style="{StaticResource CartBtn}">
 
-                    <Grid>
-                        <Image Source="file:///C:/Users/Kevin/Downloads/trash.png"/>
-                    </Grid>
+                        <Grid>
+                            <Image Source="https://cdn-icons-png.flaticon.com/512/1057/1057097.png"/>
+                        </Grid>
 
-                </Button>
+                    </Button>
 
-
-            </StackPanel>
+                </StackPanel>
+            </Grid>
 
         </Grid>
 

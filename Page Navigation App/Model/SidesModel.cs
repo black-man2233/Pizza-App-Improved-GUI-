@@ -9,6 +9,8 @@ namespace Page_Navigation_App.Model
         public string Name { get; set; }
         public int Price { get; set; }
         public string Description { get; set; }
+        public string Type { get; set; }
+
         public ObservableCollection<SidesSizeModel> Sizes { get; set; }
     }
 }

@@ -11,11 +11,12 @@ namespace Page_Navigation_App.Model
         public int Price { get; set; }
         public int Total { get; set; }
         public string Description { get; set; }
+        public String Type { get; set; }
         public ObservableCollection<ToppingsModel>? Toppings { get; set; }
         public ObservableCollection<ExtrasModel>? Extras { get; set; }
 
 
-        public OrderModel(string u, int i, string n, int p, int t, string d, ObservableCollection<ToppingsModel>? tp, ObservableCollection<ExtrasModel>? e)
+        public OrderModel(string u, int i, string n, int p, int t, string d, string type, ObservableCollection<ToppingsModel>? tp, ObservableCollection<ExtrasModel>? e)
         {
             imageUrl = u;
             Id = i;
@@ -23,6 +24,7 @@ namespace Page_Navigation_App.Model
             Price = p;
             Total = t;
             Description = d;
+            Type = type;
             Toppings = tp;
             Extras = e;
         }
@@ -30,6 +32,7 @@ namespace Page_Navigation_App.Model
 
         public OrderModel(PizzaModel p)
         {
+            this.Type = "PizzaModel";
             imageUrl = p.imageUrl;
             Id = p.Id;
             Name = p.Name;
@@ -43,6 +46,7 @@ namespace Page_Navigation_App.Model
 
         public OrderModel(SidesModel s)
         {
+            Type = "SidesModel"; ;
             imageUrl = s.imageUrl;
             Id = s.Id;
             Name = s.Name;
@@ -55,7 +59,7 @@ namespace Page_Navigation_App.Model
 
         public object Clone()
         {
-            return new OrderModel(this.imageUrl, this.Id, this.Name, this.Price, this.Total, this.Description, this.Toppings, this.Extras);
+            return new OrderModel(this.imageUrl, this.Id, this.Name, this.Price, this.Total, this.Description, this.Type, this.Toppings, this.Extras);
         }
     }
 }

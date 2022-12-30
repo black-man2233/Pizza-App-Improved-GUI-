@@ -12,6 +12,27 @@ namespace Page_Navigation_App.ViewModel
             get { return _currentView; }
             set { _currentView = value; OnPropertyChanged(); }
         }
+
+        private static string _totalCartItems = "0";
+        public string TotalCartItems
+        {
+            get
+            {
+                return _totalCartItems;
+            }
+            set
+            {
+                _totalCartItems = value;
+                OnPropertyChanged("TotalCartItems");
+            }
+        }
+
+        public static void ItemsCountUpdater()
+        {
+            int itemsInCart = HomeVM._cart.Count;
+            _totalCartItems = $"{itemsInCart}";
+        }
+
         #region ICommands
         public ICommand HomeCommand { get; set; }
         public ICommand CartCommand { get; set; }
