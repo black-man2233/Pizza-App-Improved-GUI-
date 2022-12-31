@@ -6,7 +6,8 @@ namespace Page_Navigation_App.ViewModel
 {
     class NavigationVM : Utilities.ViewModelBase
     {
-        private object _currentView;
+        #region Properties
+        private object _currentView = new MenuVM();
         public object CurrentView
         {
             get { return _currentView; }
@@ -26,30 +27,35 @@ namespace Page_Navigation_App.ViewModel
                 OnPropertyChanged("TotalCartItems");
             }
         }
-
-        public static void ItemsCountUpdater()
-        {
-            int itemsInCart = HomeVM._cart.Count;
-            _totalCartItems = $"{itemsInCart}";
-        }
+        #endregion
 
         #region ICommands
         public ICommand HomeCommand { get; set; }
         public ICommand CartCommand { get; set; }
+        public ICommand MenuCommand { get; set; }
+        public ICommand CheckOutCommand { get; set; }
+
         #endregion
 
         #region CommandsFunction
         private void Home(Object obj) => CurrentView = new HomeVM();
-        private void Product(Object obj) => CurrentView = new CartVM();
+        private void Menu(Object obj) => CurrentView = new MenuVM();
+        private void Cart(Object obj) => CurrentView = new CartVM();
+        private void CheckOut(Object obj) => CurrentView = new CheckOutVM();
+
         #endregion
+
+        #region Constructor
         public NavigationVM()
         {
             HomeCommand = new RelayCommand(Home);
-            CartCommand = new RelayCommand(Product);
+            MenuCommand = new RelayCommand(Menu);
+            CartCommand = new RelayCommand(Cart);
+            CheckOutCommand = new RelayCommand(CheckOut);
 
             //Startup Page
             this.CurrentView = new HomeVM();
         }
-
+        #endregion
     }
 }

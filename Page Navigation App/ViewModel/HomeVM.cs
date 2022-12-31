@@ -1,91 +1,46 @@
-﻿using Page_Navigation_App.Model;
-using Page_Navigation_App.Utilities;
-using PizzaApp_WPF.Model;
+﻿using Page_Navigation_App.Utilities;
 using System;
-using System.Collections.ObjectModel;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace Page_Navigation_App.ViewModel
 {
     class HomeVM : Utilities.ViewModelBase
     {
-        static DataBaseModel db = new();
+        public System.Uri VideosUrl = new Uri("https://www.youtube.com/watch?v=p2SH_BRYKi8&ab_channel=KevinBamwesa");
 
-        #region Properties
-        private ObservableCollection<PizzaModel>? _pizzaList = new(db.PizzaList);
-        public ObservableCollection<PizzaModel> PizzaList
+        public ICommand VideoEndedCommand { get; set; }
+        public ICommand VideoCLickedCommand { get; set; }
+
+        void VideoClicked(object sender)
         {
-            get => _pizzaList;
-            set
-            {
-                _pizzaList = value;
-                OnPropertyChanged("MyProperty");
-            }
+            if (sender is not null)
+                if (sender is MainWindow mw)
+                {
+                    if (mw.DataContext is NavigationVM nvm)
+                    {
+                        mw.MenuBtn.IsChecked = true;
+                        nvm.CurrentView = new MenuVM();
+                    }
+                }
+
         }
 
-
-        public static ObservableCollection<OrderModel> _cart = new();
-        public ObservableCollection<OrderModel> Cart
+        void VideoEnded(object sender)
         {
-            get
-            {
-                return _cart;
-            }
-            set
-            {
-                _cart = value;
-                OnPropertyChanged("Cart");
-            }
+            if (sender is not null)
+                if (sender is MediaElement m)
+                {
+                    m.LoadedBehavior = MediaState.Manual;
+                    m.Position = new TimeSpan(0, 0, 1);
+                    m.Play();
+                }
         }
 
-        private ObservableCollection<SidesModel> _sides = new(db.Sides);
-        public ObservableCollection<SidesModel> Sides
-        {
-            get
-            {
-                return _sides;
-            }
-            set
-            {
-                _sides = value;
-                OnPropertyChanged("Sides");
-            }
-        }
-        #endregion
-
-        #region ICommands
-        public ICommand PizzaListDoubleClickCommand { get; set; }
-        public ICommand SidezListDoubleClickCommand { get; set; }
-        #endregion
-
-        #region CommandsFunction
-        private void AddToCart(Object sender)
-        {
-            if (sender is PizzaModel p)
-            {
-                this.Cart.Add(new OrderModel(p));
-                NavigationVM.ItemsCountUpdater();
-            }
-            if (sender is SidesModel s)
-            {
-                this.Cart.Add(new OrderModel(s));
-                NavigationVM.ItemsCountUpdater();
-            }
-        }
-
-        #endregion
         public HomeVM()
         {
-            PizzaListDoubleClickCommand = new RelayCommand(AddToCart);
-            SidezListDoubleClickCommand = new RelayCommand(AddToCart);
-
+            VideoEndedCommand = new RelayCommand(VideoEnded);
+            VideoCLickedCommand = new RelayCommand(VideoClicked);
         }
-
-
-
-
-
-
-
     }
 }

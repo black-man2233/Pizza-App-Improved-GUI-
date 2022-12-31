@@ -22,25 +22,27 @@
             <ColumnDefinition />
             <ColumnDefinition Width="120"/>
         </Grid.ColumnDefinitions>
-        
+
         <ListBox x:Name="listBox" ItemsSource="{Binding CartItems}"
+                 Style="{StaticResource ListBoxStyle1}"
 				 Grid.Column="0"
 				 Padding="20"
 				 BorderBrush="Transparent"
-				 ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-				 ScrollViewer.VerticalScrollBarVisibility="Hidden"
 				 Background="#FF181818"
-				 d:ItemsSource="{d:SampleData ItemCount=20}">
+				 d:ItemsSource="{d:SampleData ItemCount=220}">
 
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid Height="80">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="50"/>
                             <ColumnDefinition Width="700"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
 
                         <Grid.InputBindings>
@@ -55,28 +57,31 @@
                         <Grid Width="630" Grid.Column="1" 
                               HorizontalAlignment="Left">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="200"/>
-                                <ColumnDefinition Width="140"/>
-                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="300"/>
+                                <ColumnDefinition Width="330"/>
                             </Grid.ColumnDefinitions>
 
                             <TextBlock Text="{Binding Name}"
 									   Grid.Column="0"
-									   Style="{StaticResource Menu_Title_Style}"/>
+									   Style="{StaticResource Menu_Title_Style}"
+                                       VerticalAlignment="Center"/>
 
-                            <TextBlock Text="{Binding Price,
-								StringFormat=' {0} kr.'}"
+                            <TextBlock Text="{Binding Price , StringFormat=' {0} kr.'}"
 									   Grid.Column="1"
-									  Style="{StaticResource Menu_Price_Style}"/>
-
-                            <TextBlock Text="{Binding Description}"
-									   Grid.Column="2"
-									   Style="{StaticResource Menu_Title_Style}"/>
+									   Style="{StaticResource Menu_Price_Style}"/>
                         </Grid>
 
 
+                        <TextBlock Text="{Binding Description}"
+                                   Style="{StaticResource Menu_Title_Style}"
+                                   Grid.Row="1"
+                                   Grid.RowSpan="3"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="2"
+                                   TextTrimming="WordEllipsis"/>
 
                     </Grid>
+
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
@@ -88,13 +93,14 @@
               Grid.Column="1"
               Width="100"
               VerticalAlignment="Center">
+
             <Border Background="#272B2F"
                         CornerRadius="20,0,0,20"/>
 
             <Grid Margin="0,90,0,90">
 
                 <StackPanel>
-                    
+
                     <!--// Slet //-->
                     <Button Command="{Binding DeleteFromCartCommand}"
                         CommandParameter="{Binding SelectedItem, ElementName=listBox}"

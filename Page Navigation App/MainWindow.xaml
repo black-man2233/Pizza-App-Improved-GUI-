@@ -29,52 +29,74 @@
 
         <!--// Navigation Panel //-->
 
-        <Grid HorizontalAlignment="Left"
-                  Width="100">
+        <Grid HorizontalAlignment="Right"
+              Grid.Column="0"
+              Width="100"
+              VerticalAlignment="Center">
+
             <Border Background="#272B2F"
-                        CornerRadius="20,0,0,20"/>
+                        CornerRadius="0,20,20,0"/>
 
-            <StackPanel Height="400"
-                            Width="100"
-                            HorizontalAlignment="Left"
-                            Orientation="Vertical">
+            <Grid Margin="0,90,0,90">
 
-                <!--// Home //-->
+                <StackPanel>
 
-                <Menu:Btn Style="{StaticResource BtnStyle}"
+                    <!--// Home //-->
+
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
                               Command="{Binding HomeCommand}"
                               HorizontalAlignment="Center"
                               IsChecked="True">
-                    <Grid>
-                        <Image Source="file:///C:/Users/Kevin/Downloads/icons8-home-page-96.png"
+                        <Grid>
+                            <Image Source="file:///C:/Users/Kevin/Downloads/icons8-home-page-96.png"
                                    Style="{StaticResource Image_Style}"/>
+                        </Grid>
 
-                    </Grid>
+                    </Menu:Btn>
 
-                </Menu:Btn>
+                    <!--// Menu //-->
 
-                <!--// Products //-->
-
-                <Menu:Btn Style="{StaticResource BtnStyle}"
-                              Command="{Binding CartCommand}">
-                    <StackPanel Orientation="Vertical"
-                                Width="100"
-                                HorizontalAlignment="Left">
-                        <Image Source="file:///C:/Users/Kevin/Downloads/Page-Navigation-using-MVVM-main/Page-Navigation-using-MVVM-main/Images/img_order.png"
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                              Command="{Binding MenuCommand}"
+                              HorizontalAlignment="Center"
+                              IsChecked="False"
+                              x:Name="MenuBtn">
+                        <Grid>
+                            <Image Source="C:\Users\Kevin\Downloads\menu.png"
                                    Style="{StaticResource Image_Style}"/>
+                        </Grid>
 
-                        <TextBlock Text="{Binding TotalCartItems, UpdateSourceTrigger=PropertyChanged}"
-                                   Style="{StaticResource Menu_Price_Style}"
-                                   FontSize="12"
-                                   HorizontalAlignment="Left"
-                                   Margin="52,-5,0,0"
-                                   MinWidth="20"
-                                   MinHeight="20"/>
-                    </StackPanel>
+                    </Menu:Btn>
 
-                </Menu:Btn>
+                    <!--// Cart //-->
 
-            </StackPanel>
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                              Command="{Binding CartCommand}"
+                              HorizontalAlignment="Center"
+                              IsChecked="False">
+                        <Grid>
+                            <Image Source="C:\Users\Kevin\Downloads\trolley.png"
+                                   Style="{StaticResource Image_Style}"/>
+                        </Grid>
+
+                    </Menu:Btn>
+
+                    <!--// CheckOut //-->
+
+                    <Menu:Btn Style="{StaticResource BtnStyle}"
+                              Command="{Binding CheckOutCommand}"
+                              HorizontalAlignment="Center"
+                              IsChecked="False">
+                        <Grid>
+                            <Image Source="file:///C:/Users/Kevin/Downloads/wallet.png"
+                                   Style="{StaticResource Image_Style}"/>
+                        </Grid>
+
+                    </Menu:Btn>
+
+
+                </StackPanel>
+            </Grid>
 
         </Grid>
 

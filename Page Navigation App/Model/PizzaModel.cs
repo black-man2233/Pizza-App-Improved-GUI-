@@ -2,7 +2,7 @@
 
 namespace Page_Navigation_App.Model
 {
-    class PizzaModel
+    public class PizzaModel
     {
         public string imageUrl { get; set; }
         public int Id { get; set; }
@@ -11,7 +11,6 @@ namespace Page_Navigation_App.Model
         public int Total { get; set; }
         public string Description { get; set; }
 
-        public string Type { get; set; }
 
         public ObservableCollection<ToppingsModel>? Toppings { get; set; }
         public ObservableCollection<ExtrasModel>? Extras { get; set; }
@@ -24,7 +23,6 @@ namespace Page_Navigation_App.Model
             Price = p;
             Total = t;
             Description = d;
-            Type = "PizzaModel";
             Toppings = tp;
             Extras = e;
         }

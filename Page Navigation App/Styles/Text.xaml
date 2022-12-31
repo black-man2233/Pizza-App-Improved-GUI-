@@ -39,7 +39,7 @@
         <Setter Property="FontFamily"
                 Value="/Fonts/#Rubik Medium"/>
         <Setter Property="HorizontalAlignment"
-                Value="Left"/>   
+                Value="Left"/>
         <Setter Property="VerticalAlignment"
                 Value="Center"/>
         <Setter Property="Foreground"
@@ -48,6 +48,5 @@
                 Value="22"/>
 
     </Style>
-
 
 </ResourceDictionary>

@@ -1,6 +1,6 @@
 ﻿namespace Page_Navigation_App.Model
 {
-    class SidesSizeModel
+    public class SidesSizeModel
     {
         public string Name
         {

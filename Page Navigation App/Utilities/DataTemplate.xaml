@@ -12,5 +12,11 @@
         <view:Cart/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:CheckOutVM}">
+        <view:CheckOut/>
+    </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:MenuVM}">
+        <view:Menu/>
+    </DataTemplate>
 </ResourceDictionary>

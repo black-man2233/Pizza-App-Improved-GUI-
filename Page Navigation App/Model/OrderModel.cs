@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 
 namespace Page_Navigation_App.Model
 {
-    class OrderModel : ICloneable
+    public class OrderModel : ICloneable
     {
         public string imageUrl { get; set; }
         public int Id { get; set; }
@@ -11,12 +10,12 @@ namespace Page_Navigation_App.Model
         public int Price { get; set; }
         public int Total { get; set; }
         public string Description { get; set; }
-        public String Type { get; set; }
-        public ObservableCollection<ToppingsModel>? Toppings { get; set; }
-        public ObservableCollection<ExtrasModel>? Extras { get; set; }
+        public string Type { get; set; }
+        public System.Collections.ObjectModel.ObservableCollection<ToppingsModel>? Toppings { get; set; }
+        public System.Collections.ObjectModel.ObservableCollection<ExtrasModel>? Extras { get; set; }
 
 
-        public OrderModel(string u, int i, string n, int p, int t, string d, string type, ObservableCollection<ToppingsModel>? tp, ObservableCollection<ExtrasModel>? e)
+        public OrderModel(string u, int i, string n, int p, int t, string d, string type, System.Collections.ObjectModel.ObservableCollection<ToppingsModel>? tp, System.Collections.ObjectModel.ObservableCollection<ExtrasModel>? e)
         {
             imageUrl = u;
             Id = i;
@@ -25,6 +24,7 @@ namespace Page_Navigation_App.Model
             Total = t;
             Description = d;
             Type = type;
+
             Toppings = tp;
             Extras = e;
         }
@@ -39,8 +39,16 @@ namespace Page_Navigation_App.Model
             Price = p.Price;
             Total = p.Total;
             Description = p.Description;
-            Toppings = null;
-            Extras = null;
+            if (p.Toppings is not null)
+            {
+                Toppings = p.Toppings;
+            }
+
+            if (p.Extras is not null)
+            {
+                Extras = p.Extras;
+
+            }
         }
 
 

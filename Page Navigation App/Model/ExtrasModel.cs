@@ -1,6 +1,8 @@
-﻿namespace Page_Navigation_App.Model
+﻿using System;
+
+namespace Page_Navigation_App.Model
 {
-    class ExtrasModel
+    public class ExtrasModel : ICloneable
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -8,5 +10,18 @@
         public int Total { get; set; }
         public int Amount { get; set; }
 
+        public ExtrasModel(int id, string name, int price, int total, int amount)
+        {
+            Id = id;
+            Name = name;
+            Price = price;
+            Total = total;
+            Amount = amount;
+        }
+
+        public object Clone()
+        {
+            return new ExtrasModel(Id, Name, Price, Total, Amount);
+        }
     }
 }

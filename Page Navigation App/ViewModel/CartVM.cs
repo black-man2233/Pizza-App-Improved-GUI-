@@ -1,5 +1,6 @@
 ﻿using Page_Navigation_App.Model;
 using Page_Navigation_App.Utilities;
+using Page_Navigation_App.View;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
@@ -34,26 +35,28 @@ namespace Page_Navigation_App.ViewModel
         {
             if (sender is not null)
             {
-
                 if (sender is OrderModel o)
                     if (o.Type is "PizzaModel")
-                        MessageBox.Show("LEssgoo");
+                    {
+                        EditWindow editWindow = new(o);
+                        editWindow.ShowDialog();
+                    }
+                    else
+                        MessageBox.Show("Vælge en venligste en Pizza");
             }
             else
                 MessageBox.Show("Vælge venligste et item fra listen");
 
-            NavigationVM.ItemsCountUpdater();
         }
         void Delete(object sender)
         {
             if (sender is not null)
                 if (sender is OrderModel o)
                 {
-                    HomeVM._cart.Remove(o);
+                    MenuVM._cart.Remove(o);
                     this.CartItems.Remove(o);
                 }
 
-            NavigationVM.ItemsCountUpdater();
         }
         #endregion
 
@@ -61,7 +64,7 @@ namespace Page_Navigation_App.ViewModel
         public CartVM()
         {
             _cartItems.Clear();
-            foreach (OrderModel item in HomeVM._cart)
+            foreach (OrderModel item in MenuVM._cart)
             {
                 _cartItems.Add(item);
 
