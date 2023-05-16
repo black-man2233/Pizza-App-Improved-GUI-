@@ -13,4 +13,15 @@
     <PackageReference Include="Newtonsoft.Json.Bson" Version="1.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="DataBase\Json\ExtrasDb.json" />
+    <Resource Include="DataBase\Json\ExtrasDb.json" />
+    <None Remove="DataBase\Json\PizzasDB.json" />
+    <Resource Include="DataBase\Json\PizzasDB.json" />
+    <None Remove="DataBase\Json\SidesDB.json" />
+    <Resource Include="DataBase\Json\SidesDB.json" />
+    <None Remove="DataBase\Json\ToppingsDB.json" />
+    <Resource Include="DataBase\Json\ToppingsDB.json" />
+  </ItemGroup>
+
 </Project>
