@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using PizzaApp_WPF.Model;
 using PizzaAppWpf.Model;
 using PizzaAppWpf.MVVM.Model;
 using PizzaAppWpf.Utilities;
+
 #pragma warning disable
 namespace PizzaAppWpf.MVVM.ViewModel
 {
     class MenuVM : Utilities.ViewModelBase
     {
-        static Database db = new();
 
         #region Properties
-        private ObservableCollection<PizzaModel>? _pizzaList = new(db.PizzaList);
+        private ObservableCollection<PizzaModel>? _pizzaList;
         public ObservableCollection<PizzaModel> PizzaList
         {
             get => _pizzaList;
@@ -38,7 +37,7 @@ namespace PizzaAppWpf.MVVM.ViewModel
             }
         }
 
-        private ObservableCollection<SidesModel> _sides = new(db.Sides);
+        private ObservableCollection<SidesModel> _sides = new();
         public ObservableCollection<SidesModel> Sides
         {
             get
@@ -52,8 +51,8 @@ namespace PizzaAppWpf.MVVM.ViewModel
             }
         }
 
-        private ObservableCollection<ToppingsListModel> _toppingsList { get; set; } = new(db.ToppingsList);
-        private ObservableCollection<ExtrasModel> _extrasList { get; set; } = new(db.ExtrasList);
+        private ObservableCollection<ToppingsListModel> _toppingsList { get; set; } = new();
+        private ObservableCollection<ExtrasModel> _extrasList { get; set; } = new();
 
         #endregion
 
@@ -114,7 +113,9 @@ namespace PizzaAppWpf.MVVM.ViewModel
         }
 
         public MenuVM()
-        {
+        { 
+            _pizzaList = new(DataBase.Database.Instance.GetAllPizzas());
+            
             PizzaListDoubleClickCommand = new RelayCommand(AddToCart);
             SidezListDoubleClickCommand = new RelayCommand(AddToCart);
         }

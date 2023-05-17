@@ -1,5 +1,6 @@
 ﻿using System.Windows.Input;
 using PizzaAppWpf.Model;
+using PizzaAppWpf.MVVM.Model;
 using PizzaAppWpf.Utilities;
 #pragma warning disable
 namespace PizzaAppWpf.MVVM.ViewModel

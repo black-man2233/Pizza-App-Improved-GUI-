@@ -1,6 +1,8 @@
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using PizzaAppWpf.Model;
+using PizzaAppWpf.MVVM.Model;
+
 namespace PizzaAppWpf.DataBase;
 #pragma warning disable
 

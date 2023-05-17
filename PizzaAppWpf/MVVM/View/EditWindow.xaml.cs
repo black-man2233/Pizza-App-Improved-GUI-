@@ -1,9 +1,8 @@
 ﻿using System.Windows;
-using PizzaAppWpf.Model;
+using PizzaAppWpf.MVVM.Model;
 using PizzaAppWpf.MVVM.ViewModel;
-using PizzaAppWpf.ViewModel;
 
-namespace PizzaAppWpf.View
+namespace PizzaAppWpf.MVVM.View
 {
     /// <summary>
     /// Interaction logic for EditWindow.xaml

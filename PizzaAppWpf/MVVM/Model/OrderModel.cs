@@ -1,6 +1,7 @@
 ﻿using System;
+using PizzaAppWpf.Model;
 
-namespace PizzaAppWpf.Model
+namespace PizzaAppWpf.MVVM.Model
 {
     public class OrderModel : ICloneable
     {
