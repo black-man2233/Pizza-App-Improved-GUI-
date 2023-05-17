@@ -26,7 +26,6 @@
                     CommandParameter="{Binding}"
                     Gesture="LeftClick" />
             </Image.InputBindings>
-
         </Image>
     </Grid>
 </UserControl>
