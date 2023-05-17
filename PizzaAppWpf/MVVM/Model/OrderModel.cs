@@ -37,7 +37,6 @@ namespace PizzaAppWpf.Model
             Id = p.Id;
             Name = p.Name;
             Price = p.Price;
-            Total = p.Total;
             Description = p.Description;
             if (p.Toppings is not null)
             {
