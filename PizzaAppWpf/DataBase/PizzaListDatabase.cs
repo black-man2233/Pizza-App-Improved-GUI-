@@ -59,14 +59,7 @@ partial class Database
             ObservableCollection<PizzaModel>? _pizzas =
                 JsonConvert.DeserializeObject<ObservableCollection<PizzaModel>>(
                     File.ReadAllText($@"{jsonFilePath}"));
-        }
-        catch (Exception e)
-        {
-            MessageBox.Show("Couldn't read data from the given file");
-        }
 
-        try
-        {
             string connectionString =
                 @"Data Source = SIMPORD\SQLEXPRESS; Initial Catalog=PizzaApp; Integrated Security=True;";
 
