@@ -10,7 +10,7 @@
         <view:Home />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:CartVM}">
+    <DataTemplate DataType="{x:Type viewModel:CartVM}">
         <view:Cart />
     </DataTemplate>
 

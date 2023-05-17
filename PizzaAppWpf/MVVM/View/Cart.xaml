@@ -1,84 +1,97 @@
-﻿<UserControl x:Class="PizzaAppWpf.View.Cart"
-			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-			 xmlns:local="clr-namespace:PizzaAppWpf.View"
-			 xmlns:vm="clr-namespace:PizzaAppWpf.ViewModel"
-        xmlns:Menu="clr-namespace:PizzaAppWpf.Utilities" xmlns:Behaviors="http://schemas.microsoft.com/xaml/behaviors"
-             mc:Ignorable="d" 
-			 d:DesignHeight="600"
-			 d:DesignWidth="900"
-			 Style="{StaticResource Page_Stye}"
-			 >
+﻿<UserControl
+    Style="{StaticResource Page_Stye}"
+    d:DesignHeight="600"
+    d:DesignWidth="900"
+    mc:Ignorable="d"
+    x:Class="PizzaAppWpf.View.Cart"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:Behaviors="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:Menu="clr-namespace:PizzaAppWpf.Utilities"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:PizzaAppWpf.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="clr-namespace:PizzaAppWpf.MVVM.ViewModel"
+    xmlns:vm="clr-namespace:PizzaAppWpf.ViewModel"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <UserControl.DataContext>
-        <vm:CartVM/>
+        <viewModel:CartVM />
     </UserControl.DataContext>
 
     <Grid Background="#212529">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
-            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="120" />
         </Grid.ColumnDefinitions>
 
-        <ListBox x:Name="listBox" ItemsSource="{Binding CartItems}"
-                 Style="{StaticResource ListBoxStyle1}"
-				 Grid.Column="0"
-				 Padding="20"
-				 BorderBrush="Transparent"
-				 Background="#FF181818"
-				 d:ItemsSource="{d:SampleData ItemCount=220}">
+        <ListBox
+            Background="#FF181818"
+            BorderBrush="Transparent"
+            Grid.Column="0"
+            ItemsSource="{Binding CartItems}"
+            Padding="20"
+            Style="{StaticResource ListBoxStyle1}"
+            d:ItemsSource="{d:SampleData ItemCount=220}"
+            x:Name="listBox">
 
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Height="80">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="50"/>
-                            <ColumnDefinition Width="700"/>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="700" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="40"/>
-                            <RowDefinition Height="40"/>
-                            <RowDefinition Height="40"/>
-                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
                         </Grid.RowDefinitions>
 
                         <Grid.InputBindings>
-                            <MouseBinding Gesture="LeftDoubleClick" Command="{Binding DataContext.PizzaListDoubleClickCommand , RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding}"/>
+                            <MouseBinding
+                                Command="{Binding DataContext.PizzaListDoubleClickCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ItemsControl}}}"
+                                CommandParameter="{Binding}"
+                                Gesture="LeftDoubleClick" />
                         </Grid.InputBindings>
 
 
-                        <Image Source="{Binding imageUrl}" 
-							   Margin="0.2,0,10,0"
-							   Grid.Column="0"/>
+                        <Image
+                            Grid.Column="0"
+                            Margin="0.2,0,10,0"
+                            Source="{Binding imageUrl}" />
 
-                        <Grid Width="630" Grid.Column="1" 
-                              HorizontalAlignment="Left">
+                        <Grid
+                            Grid.Column="1"
+                            HorizontalAlignment="Left"
+                            Width="630">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="300"/>
-                                <ColumnDefinition Width="330"/>
+                                <ColumnDefinition Width="300" />
+                                <ColumnDefinition Width="330" />
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock Text="{Binding Name}"
-									   Grid.Column="0"
-									   Style="{StaticResource Menu_Title_Style}"
-                                       VerticalAlignment="Center"/>
+                            <TextBlock
+                                Grid.Column="0"
+                                Style="{StaticResource Menu_Title_Style}"
+                                Text="{Binding Name}"
+                                VerticalAlignment="Center" />
 
-                            <TextBlock Text="{Binding Price , StringFormat=' {0} kr.'}"
-									   Grid.Column="1"
-									   Style="{StaticResource Menu_Price_Style}"/>
+                            <TextBlock
+                                Grid.Column="1"
+                                Style="{StaticResource Menu_Price_Style}"
+                                Text="{Binding Price, StringFormat=' {0} kr.'}" />
                         </Grid>
 
 
-                        <TextBlock Text="{Binding Description}"
-                                   Style="{StaticResource Menu_Title_Style}"
-                                   Grid.Row="1"
-                                   Grid.RowSpan="3"
-                                   Grid.Column="0"
-                                   Grid.ColumnSpan="2"
-                                   TextTrimming="WordEllipsis"/>
+                        <TextBlock
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Grid.Row="1"
+                            Grid.RowSpan="3"
+                            Style="{StaticResource Menu_Title_Style}"
+                            Text="{Binding Description}"
+                            TextTrimming="WordEllipsis" />
 
                     </Grid>
 
@@ -87,39 +100,41 @@
         </ListBox>
 
 
-        <!--// Navigation Panel //-->
+        <!--  // Navigation Panel //  -->
 
-        <Grid HorizontalAlignment="Right"
-              Grid.Column="1"
-              Width="100"
-              VerticalAlignment="Center">
+        <Grid
+            Grid.Column="1"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Width="100">
 
-            <Border Background="#272B2F"
-                        CornerRadius="20,0,0,20"/>
+            <Border Background="#272B2F" CornerRadius="20,0,0,20" />
 
             <Grid Margin="0,90,0,90">
 
                 <StackPanel>
 
-                    <!--// Slet //-->
-                    <Button Command="{Binding DeleteFromCartCommand}"
+                    <!--  // Slet //  -->
+                    <Button
+                        Command="{Binding DeleteFromCartCommand}"
                         CommandParameter="{Binding SelectedItem, ElementName=listBox}"
                         Style="{StaticResource CartBtn}">
 
                         <Grid>
-                            <Image Source="file:///C:/Users/Kevin/Downloads/trash.png"/>
+                            <Image Source="file:///C:/Users/Kevin/Downloads/trash.png" />
                         </Grid>
 
                     </Button>
 
-                    <!--// Redigere //-->
+                    <!--  // Redigere //  -->
 
-                    <Button Command="{Binding EditPizzaCommand}"
+                    <Button
+                        Command="{Binding EditPizzaCommand}"
                         CommandParameter="{Binding SelectedItem, ElementName=listBox}"
                         Style="{StaticResource CartBtn}">
 
                         <Grid>
-                            <Image Source="https://cdn-icons-png.flaticon.com/512/1057/1057097.png"/>
+                            <Image Source="https://cdn-icons-png.flaticon.com/512/1057/1057097.png" />
                         </Grid>
 
                     </Button>

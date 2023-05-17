@@ -1,12 +1,11 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
-using PizzaAppWpf.Model;
-using PizzaAppWpf.MVVM.ViewModel;
+using PizzaAppWpf.MVVM.Model;
+using PizzaAppWpf.MVVM.View;
 using PizzaAppWpf.Utilities;
-using PizzaAppWpf.View;
 
-namespace PizzaAppWpf.ViewModel
+namespace PizzaAppWpf.MVVM.ViewModel
 {
     class CartVM : Utilities.ViewModelBase
     {
