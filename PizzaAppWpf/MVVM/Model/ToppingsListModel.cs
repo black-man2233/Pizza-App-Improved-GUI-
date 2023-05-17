@@ -2,7 +2,7 @@
 
 namespace PizzaAppWpf.Model
 {
-    class ToppingsListModel
+    public class ToppingsListModel
     {
         public ObservableCollection<ToppingsModel> Toppings { get; set; }
     }

@@ -10,6 +10,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
     <PackageReference Include="Newtonsoft.Json.Bson" Version="1.0.2" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +22,55 @@
     <Resource Include="DataBase\Json\SidesDB.json" />
     <None Remove="DataBase\Json\ToppingsDB.json" />
     <Resource Include="DataBase\Json\ToppingsDB.json" />
+    <None Remove="Medias\Icons\CartIcon.png" />
+    <Resource Include="Medias\Icons\CartIcon.png" />
+    <None Remove="Medias\Icons\HomeIcon.png" />
+    <Resource Include="Medias\Icons\HomeIcon.png" />
+    <None Remove="Medias\Icons\img_customer.png" />
+    <Resource Include="Medias\Icons\img_customer.png" />
+    <None Remove="Medias\Icons\img_home.png" />
+    <Resource Include="Medias\Icons\img_home.png" />
+    <None Remove="Medias\Icons\img_order.png" />
+    <Resource Include="Medias\Icons\img_order.png" />
+    <None Remove="Medias\Icons\img_product.png" />
+    <Resource Include="Medias\Icons\img_product.png" />
+    <None Remove="Medias\Icons\img_setting.png" />
+    <Resource Include="Medias\Icons\img_setting.png" />
+    <None Remove="Medias\Icons\img_shipment.png" />
+    <Resource Include="Medias\Icons\img_shipment.png" />
+    <None Remove="Medias\Icons\img_transaction.png" />
+    <Resource Include="Medias\Icons\img_transaction.png" />
+    <None Remove="Medias\Icons\MenuIcon.png" />
+    <Resource Include="Medias\Icons\MenuIcon.png" />
+    <None Remove="Medias\Icons\PaymentIcon.png" />
+    <Resource Include="Medias\Icons\PaymentIcon.png" />
+    <None Remove="Medias\Icons\shutdown_def.png" />
+    <Resource Include="Medias\Icons\shutdown_def.png" />
+    <None Remove="Medias\Icons\shutdown_mo.png" />
+    <Resource Include="Medias\Icons\shutdown_mo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Medias\" />
+    <Folder Include="MVVM\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="MVVM\View\Cart.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="MVVM\View\CheckOut.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="MVVM\View\EditWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="MVVM\View\Home.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="MVVM\View\Menu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
 </Project>

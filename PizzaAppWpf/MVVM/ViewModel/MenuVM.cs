@@ -9,7 +9,7 @@ namespace PizzaAppWpf.ViewModel
 {
     class MenuVM : Utilities.ViewModelBase
     {
-        static DataBaseModel db = new();
+        static Database db = new();
 
         #region Properties
         private ObservableCollection<PizzaModel>? _pizzaList = new(db.PizzaList);
