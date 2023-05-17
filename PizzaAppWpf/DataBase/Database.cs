@@ -1,16 +1,13 @@
 ﻿using System;
-using Newtonsoft.Json;
-using PizzaAppWpf.Model;
-using System.Collections.ObjectModel;
 using System.Data.SqlClient;
-using System.IO;
+using System.Runtime.CompilerServices;
 using System.Windows;
-using PizzaAppWpf.MVVM.Model;
 
-namespace PizzaApp_WPF.Model
+#pragma warning disable
+namespace PizzaAppWpf.DataBase
 {
 #pragma warning disable
-    public class Database
+    public partial class Database
     {
         public static Database Instance { get; }
 
@@ -18,60 +15,16 @@ namespace PizzaApp_WPF.Model
         {
             Instance = new Database();
 
-            var a = GetConnection();
+            Instance.GetPizzasFromDb(Instance.GetConnection());
         }
 
-        private static SqlConnection GetConnection()
+        private SqlConnection GetConnection()
         {
-            const string connectionString =
-                @"Data Source = .\SQLEXPRESS; Initial Catalog=PizzaApp; Integrated Security = true; Encrypt = False ";
+            string connectionString =
+                @"Data Source = SIMPORD\SQLEXPRESS; Initial Catalog=PizzaApp; Integrated Security=True;";
+            SqlConnection connection = new SqlConnection(connectionString);
 
-            SqlConnection connection = new(connectionString);
-            try
-            {
-                connection.Open();
-                return connection;
-            }
-            catch (Exception e)
-            {
-              MessageBox.Show("Couldnt connect to database");
-                return null;
-            }
-            
-        }
-
-
-        //PizzaList
-        private ObservableCollection<PizzaModel> _pizzas = new();
-
-        public ObservableCollection<PizzaModel> PizzaList
-        {
-            get => this._pizzas;
-        }
-
-        //Sides
-        private ObservableCollection<SidesModel> _sides = new();
-
-        public ObservableCollection<SidesModel> Sides
-        {
-            get => this._sides;
-        }
-
-
-        //Toppings
-        private ObservableCollection<ToppingsListModel> _toppingsList = new();
-
-        public ObservableCollection<ToppingsListModel> ToppingsList
-        {
-            get => _toppingsList;
-        }
-
-        //Extras
-        private ObservableCollection<ExtrasModel> _extraList = new();
-
-        public ObservableCollection<ExtrasModel> ExtrasList
-        {
-            get => _extraList;
+            return connection;
         }
     }
 }
