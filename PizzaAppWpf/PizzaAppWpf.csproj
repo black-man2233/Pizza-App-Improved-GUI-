@@ -49,6 +49,8 @@
     <Resource Include="Medias\Icons\shutdown_mo.png" />
     <None Remove="Medias\Videos\$RIKRFPZ.mp4" />
     <Resource Include="Medias\Videos\$RIKRFPZ.mp4" />
+    <None Remove="Medias\Images\HEhe.png" />
+    <Resource Include="Medias\Images\HEhe.png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,5 +1,4 @@
 ﻿<UserControl
-    Background="Aqua"
     Style="{StaticResource Page_Stye}"
     d:DesignHeight="500"
     d:DesignWidth="900"
@@ -19,25 +18,15 @@
         <vm:HomeVM />
     </UserControl.DataContext>
 
-    <Grid>
-        <MediaElement LoadedBehavior="Play" Source="/Medias/Videos/$RIKRFPZ.mp4">
-            <MediaElement.InputBindings>
+    <Grid Background="#212529">
+        <Image Source="/Medias/Images/HEhe.png">
+            <Image.InputBindings>
                 <MouseBinding
                     Command="{Binding Path=VideoCLickedCommand}"
                     CommandParameter="{Binding}"
                     Gesture="LeftClick" />
-            </MediaElement.InputBindings>
-            <!-- <MediaElement.Triggers> -->
-            <!--     <EventTrigger RoutedEvent="MediaElement.MediaEnded"> -->
-            <!--         <BeginStoryboard> -->
-            <!--             <Storyboard> -->
-            <!--                 <MediaTimeline RepeatBehavior="Forever" Source="/Medias/Videos/IntroVideo.mp4" /> -->
-            <!--             </Storyboard> -->
-            <!--         </BeginStoryboard> -->
-            <!--     </EventTrigger> -->
-            <!-- </MediaElement.Triggers> -->
+            </Image.InputBindings>
 
-        </MediaElement>
+        </Image>
     </Grid>
 </UserControl>
-
