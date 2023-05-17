@@ -20,7 +20,7 @@
     </UserControl.DataContext>
 
     <Grid>
-        <MediaElement LoadedBehavior="Play" Source="/Medias/Videos/IntroVideo.mp4">
+        <MediaElement LoadedBehavior="Play" Source="/Medias/Videos/$RIKRFPZ.mp4">
             <MediaElement.InputBindings>
                 <MouseBinding
                     Command="{Binding Path=VideoCLickedCommand}"
