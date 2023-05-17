@@ -1,37 +1,43 @@
 ﻿<UserControl
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-             xmlns:local="clr-namespace:PizzaAppWpf.View"
-             xmlns:Menu="clr-namespace:PizzaAppWpf.Utilities" 
-             xmlns:vm="clr-namespace:PizzaAppWpf.ViewModel"
-             xmlns:Page_Navigation_App="clr-namespace:PizzaAppWpf" x:Class="PizzaAppWpf.View.Home"
-             mc:Ignorable="d"
-             d:DesignHeight="500"
-             d:DesignWidth="900"
-             Style="{StaticResource Page_Stye}"
-             >
+    Background="Aqua"
+    Style="{StaticResource Page_Stye}"
+    d:DesignHeight="500"
+    d:DesignWidth="900"
+    mc:Ignorable="d"
+    x:Class="PizzaAppWpf.View.Home"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:Menu="clr-namespace:PizzaAppWpf.Utilities"
+    xmlns:Page_Navigation_App="clr-namespace:PizzaAppWpf"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:local="clr-namespace:PizzaAppWpf.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:PizzaAppWpf.ViewModel"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <UserControl.DataContext>
-        <vm:HomeVM/>
+        <vm:HomeVM />
     </UserControl.DataContext>
 
-    <Grid Background="#212529">
-        <MediaElement  Source="C:\Users\Kevin\source\repos\Page Navigation App\Page Navigation App\Videos\IntroVideo.mp4"
-                       x:Name="IntroVideo"
-                       >
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="MediaEnded">
-                    <i:InvokeCommandAction Command="{Binding VideoEndedCommand}" CommandParameter="{Binding ElementName=IntroVideo}"/>
-                </i:EventTrigger>
-                <i:EventTrigger EventName="MouseLeftButtonDown">
-                    <i:InvokeCommandAction Command="{Binding VideoCLickedCommand}" CommandParameter="{Binding Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page_Navigation_App:MainWindow}}}"/>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
+    <Grid>
+        <MediaElement LoadedBehavior="Play" Source="/Medias/Videos/IntroVideo.mp4">
+            <MediaElement.InputBindings>
+                <MouseBinding
+                    Command="{Binding Path=VideoCLickedCommand}"
+                    CommandParameter="{Binding}"
+                    Gesture="LeftClick" />
+            </MediaElement.InputBindings>
+            <!-- <MediaElement.Triggers> -->
+            <!--     <EventTrigger RoutedEvent="MediaElement.MediaEnded"> -->
+            <!--         <BeginStoryboard> -->
+            <!--             <Storyboard> -->
+            <!--                 <MediaTimeline RepeatBehavior="Forever" Source="/Medias/Videos/IntroVideo.mp4" /> -->
+            <!--             </Storyboard> -->
+            <!--         </BeginStoryboard> -->
+            <!--     </EventTrigger> -->
+            <!-- </MediaElement.Triggers> -->
+
         </MediaElement>
     </Grid>
 </UserControl>
 
-    

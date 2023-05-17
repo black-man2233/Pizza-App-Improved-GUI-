@@ -8,9 +8,6 @@ namespace PizzaAppWpf.ViewModel
 {
     class HomeVM : Utilities.ViewModelBase
     {
-        public System.Uri VideosUrl = new Uri("https://www.youtube.com/watch?v=p2SH_BRYKi8&ab_channel=KevinBamwesa");
-
-        public ICommand VideoEndedCommand { get; set; }
         public ICommand VideoCLickedCommand { get; set; }
 
         void VideoClicked(object sender)
@@ -24,7 +21,6 @@ namespace PizzaAppWpf.ViewModel
                         nvm.CurrentView = new MenuVM();
                     }
                 }
-
         }
 
         void VideoEnded(object sender)
@@ -40,7 +36,6 @@ namespace PizzaAppWpf.ViewModel
 
         public HomeVM()
         {
-            VideoEndedCommand = new RelayCommand(VideoEnded);
             VideoCLickedCommand = new RelayCommand(VideoClicked);
         }
     }

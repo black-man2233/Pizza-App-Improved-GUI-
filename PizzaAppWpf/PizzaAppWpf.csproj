@@ -47,8 +47,6 @@
     <Resource Include="Medias\Icons\shutdown_def.png" />
     <None Remove="Medias\Icons\shutdown_mo.png" />
     <Resource Include="Medias\Icons\shutdown_mo.png" />
-    <None Remove="Medias\Videos\IntroVideo.mp4" />
-    <Resource Include="Medias\Videos\IntroVideo.mp4" />
   </ItemGroup>
 
   <ItemGroup>
