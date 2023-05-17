@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using PizzaAppWpf.Model;
-
+using PizzaAppWpf.MVVM.Model;
+#pragma warning disable
 namespace PizzaAppWpf
 {
     class ToDelete

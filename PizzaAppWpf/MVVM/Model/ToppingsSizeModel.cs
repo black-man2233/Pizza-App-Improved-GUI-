@@ -1,4 +1,5 @@
-﻿namespace PizzaAppWpf.Model
+﻿#pragma warning disable
+namespace PizzaAppWpf.MVVM.Model
 {
     class ToppingsSizeModel
     {

@@ -1,22 +1,24 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:vm="clr-namespace:PizzaAppWpf.ViewModel"
-                    xmlns:view="clr-namespace:PizzaAppWpf.View"
-                    xmlns:local="clr-namespace:PizzaAppWpf">
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:local="clr-namespace:PizzaAppWpf"
+    xmlns:view="clr-namespace:PizzaAppWpf.View"
+    xmlns:viewModel="clr-namespace:PizzaAppWpf.MVVM.ViewModel"
+    xmlns:vm="clr-namespace:PizzaAppWpf.ViewModel"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <DataTemplate DataType="{x:Type vm:HomeVM}">
-        <view:Home/>
+        <view:Home />
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:CartVM}">
-        <view:Cart/>
+        <view:Cart />
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type vm:CheckOutVM}">
-        <view:CheckOut/>
+        <view:CheckOut />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:MenuVM}">
-        <view:Menu/>
+    <DataTemplate DataType="{x:Type viewModel:MenuVM}">
+        <view:Menu />
     </DataTemplate>
 </ResourceDictionary>

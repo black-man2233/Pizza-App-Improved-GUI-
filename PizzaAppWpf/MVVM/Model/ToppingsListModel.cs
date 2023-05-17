@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
-
-namespace PizzaAppWpf.Model
+using PizzaAppWpf.Model;
+#pragma warning disable
+namespace PizzaAppWpf.MVVM.Model
 {
     public class ToppingsListModel
     {

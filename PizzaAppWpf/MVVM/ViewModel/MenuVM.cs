@@ -1,11 +1,12 @@
-﻿using PizzaApp_WPF.Model;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using PizzaApp_WPF.Model;
 using PizzaAppWpf.Model;
+using PizzaAppWpf.MVVM.Model;
 using PizzaAppWpf.Utilities;
-
-namespace PizzaAppWpf.ViewModel
+#pragma warning disable
+namespace PizzaAppWpf.MVVM.ViewModel
 {
     class MenuVM : Utilities.ViewModelBase
     {
@@ -19,7 +20,7 @@ namespace PizzaAppWpf.ViewModel
             set
             {
                 _pizzaList = value;
-                OnPropertyChanged("MyProperty");
+                OnPropertyChanged("PizzaList");
             }
         }
 

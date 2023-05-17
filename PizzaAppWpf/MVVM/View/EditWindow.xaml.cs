@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using PizzaAppWpf.Model;
+using PizzaAppWpf.MVVM.ViewModel;
 using PizzaAppWpf.ViewModel;
 
 namespace PizzaAppWpf.View

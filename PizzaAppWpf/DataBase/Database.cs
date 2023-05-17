@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.IO;
 using System.Windows;
+using PizzaAppWpf.MVVM.Model;
 
 namespace PizzaApp_WPF.Model
 {

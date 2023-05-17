@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Input;
 using PizzaAppWpf.Model;
+using PizzaAppWpf.MVVM.ViewModel;
 using PizzaAppWpf.Utilities;
 using PizzaAppWpf.View;
 
