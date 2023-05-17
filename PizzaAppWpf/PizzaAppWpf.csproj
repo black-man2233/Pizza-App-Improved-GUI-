@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
     <PackageReference Include="Newtonsoft.Json.Bson" Version="1.0.2" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
@@ -48,6 +47,8 @@
     <Resource Include="Medias\Icons\shutdown_def.png" />
     <None Remove="Medias\Icons\shutdown_mo.png" />
     <Resource Include="Medias\Icons\shutdown_mo.png" />
+    <None Remove="Medias\Videos\IntroVideo.mp4" />
+    <Resource Include="Medias\Videos\IntroVideo.mp4" />
   </ItemGroup>
 
   <ItemGroup>
