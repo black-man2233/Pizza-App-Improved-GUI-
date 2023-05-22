@@ -8,6 +8,16 @@ public class DrinkModel : ICloneable
 {
     public string imageUrl    { get; set; }
     public string Name        { get; set; }
+
+    public int Price
+    {
+        get => Size[0].Price;
+        set
+        {
+            Price = value;
+        }
+    }
+
     public string Description { get; set; }
     public List<CapacitiesModel> Size        { get; set; }
 
