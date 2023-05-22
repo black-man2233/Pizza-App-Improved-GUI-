@@ -38,8 +38,6 @@ public partial class Database
 
                 _toppings.Add(topping);
             }
-
-            connection.Close();
         }
         catch (Exception e)
         {

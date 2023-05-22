@@ -1,5 +1,5 @@
 ﻿using System;
-
+#pragma warning disable
 namespace PizzaAppWpf.Model
 {
     public class ToppingsModel : ICloneable

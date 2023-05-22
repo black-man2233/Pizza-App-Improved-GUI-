@@ -48,11 +48,16 @@ partial class Database
             //Shows a message in case of an error
             MessageBox.Show("Error in GetPizzasFromDb");
         }
+        finally
+        {
+            connection.Close();
+        }
     }
 
     public ObservableCollection<PizzaModel> GetAllPizzas() => this._pizzaList;
 
-    private void addPizzasToDBFromJson(string jsonFilePath)
+    private void addPizzasToDBFromJson(string jsonFilePath, string dataSource, string catalog,
+        bool integratedSecurity)
     {
         try
         {
@@ -61,7 +66,7 @@ partial class Database
                     File.ReadAllText($@"{jsonFilePath}"));
 
             string connectionString =
-                @"Data Source = SIMPORD\SQLEXPRESS; Initial Catalog=PizzaApp; Integrated Security=True;";
+                $@"Data Source = {dataSource}; Initial Catalog={catalog}; Integrated Security={integratedSecurity};";
 
 
             // Create a connection to the database
