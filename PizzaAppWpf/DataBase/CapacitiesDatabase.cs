@@ -11,7 +11,7 @@ partial class Database
     private ObservableCollection<CapacitiesModel> _capacitiesList = new();
     public ObservableCollection<CapacitiesModel> GetAllCapacites() => _capacitiesList;
 
-    private void GetCapacitiesFromDB(SqlConnection connection)
+    private void GetCapacitiesFromDb(SqlConnection connection)
     {
         try
         {
