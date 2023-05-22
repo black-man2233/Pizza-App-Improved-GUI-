@@ -37,9 +37,6 @@ namespace PizzaAppWpf.MVVM.ViewModel
             }
         }
 
-
-        private ObservableCollection<ToppingsSizeModel> _toppingsList { get; set; } = new();
-
         #endregion
 
         #region ICommands

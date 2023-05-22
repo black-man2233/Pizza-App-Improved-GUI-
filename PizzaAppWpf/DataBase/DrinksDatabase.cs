@@ -2,9 +2,9 @@ using System;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Windows;
-using Microsoft.VisualBasic;
 using PizzaAppWpf.MVVM.Model;
 
+#pragma warning disable
 namespace PizzaAppWpf.DataBase;
 
 partial class Database
