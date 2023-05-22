@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Text;
 using PizzaAppWpf.Model;
+
 #pragma warning disable
 namespace PizzaAppWpf.MVVM.Model
 {
@@ -35,11 +36,11 @@ namespace PizzaAppWpf.MVVM.Model
         {
             if (obj is PizzaModel p)
             {
-                new OrderModel(p);
+                PizzaModel(p);
             }
             else if (obj is DrinkModel d)
             {
-                new OrderModel(d);
+                this.DrinkModel(d);
             }
             else
             {
@@ -47,7 +48,7 @@ namespace PizzaAppWpf.MVVM.Model
             }
         }
 
-        public OrderModel(PizzaModel p)
+        public void PizzaModel(PizzaModel p)
         {
             this.ImageUrl = p.imageUrl;
             Id = p.Id;
@@ -57,13 +58,13 @@ namespace PizzaAppWpf.MVVM.Model
             Toppings = new();
         }
 
-        public OrderModel(DrinkModel d)
+        public void DrinkModel(DrinkModel d)
         {
             this.ImageUrl = d.imageUrl;
             Name = d.Name;
             Price = d.Price;
             Description = Description;
-            Toppings =null;
+            Toppings = null;
         }
 
         public object Clone()

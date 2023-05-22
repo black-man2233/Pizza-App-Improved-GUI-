@@ -51,25 +51,27 @@ namespace PizzaAppWpf.MVVM.ViewModel
 
         #endregion
 
-        #region ICommands
+        #region ICommands & Command Functions
 
         public ICommand PizzaListDoubleClickCommand { get; set; }
         public ICommand SidezListDoubleClickCommand { get; set; }
 
-        #endregion
+        private void AddToCart(Object sender) => _cart.Add(new OrderModel(sender));
 
-        private void AddToCart(Object sender)
+        private void Commands()
         {
-            _cart.Add(new(sender));
+            PizzaListDoubleClickCommand = new RelayCommand(AddToCart);
+            SidezListDoubleClickCommand = new RelayCommand(AddToCart);
         }
+
+        #endregion
 
         public MenuVM()
         {
             _pizzaList = new(DataBase.Database.Instance.GetAllPizzas());
             _drinksList = new(DataBase.Database.Instance.GetAllDrinks());
 
-            PizzaListDoubleClickCommand = new RelayCommand(AddToCart);
-            SidezListDoubleClickCommand = new RelayCommand(AddToCart);
+            Commands();
         }
     }
 }
