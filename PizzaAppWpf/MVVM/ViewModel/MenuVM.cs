@@ -25,6 +25,18 @@ namespace PizzaAppWpf.MVVM.ViewModel
             }
         }
 
+        public ObservableCollection<DrinkModel> _drinksList { get; set; }
+
+        public ObservableCollection<DrinkModel> DrinksList
+        {
+            get { return _drinksList; }
+            set
+            {
+                _drinksList = value;
+                OnPropertyChanged("DrinksList");
+            }
+        }
+
         public static ObservableCollection<OrderModel> _cart = new();
 
         public ObservableCollection<OrderModel> Cart
@@ -54,6 +66,7 @@ namespace PizzaAppWpf.MVVM.ViewModel
         public MenuVM()
         {
             _pizzaList = new(DataBase.Database.Instance.GetAllPizzas());
+            _drinksList = new(DataBase.Database.Instance.GetAllDrinks());
 
             PizzaListDoubleClickCommand = new RelayCommand(AddToCart);
             SidezListDoubleClickCommand = new RelayCommand(AddToCart);

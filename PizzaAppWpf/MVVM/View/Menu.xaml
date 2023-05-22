@@ -51,8 +51,7 @@
             Padding="10"
             ScrollViewer.HorizontalScrollBarVisibility="Hidden"
             ScrollViewer.VerticalScrollBarVisibility="Auto"
-            Style="{StaticResource ListBoxStyle1}"
-            d:ItemsSource="{d:SampleData ItemCount=100}">
+            Style="{StaticResource ListBoxStyle1}">
 
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -100,14 +99,13 @@
                         </Grid>
 
 
-
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
 
         </ListBox>
 
-        <!--  // Sides Menu List //  -->
+        <!--  // Drinks List //  -->
 
         <ListBox
             Background="#FF181818"
@@ -117,7 +115,7 @@
             Grid.ColumnSpan="3"
             Grid.Row="0"
             Grid.RowSpan="5"
-            ItemsSource="{Binding Sides}"
+            ItemsSource="{Binding DrinksList}"
             Padding="10"
             ScrollViewer.HorizontalScrollBarVisibility="Hidden"
             ScrollViewer.VerticalScrollBarVisibility="Auto"
@@ -174,11 +172,11 @@
                                 Foreground="#CED565"
                                 Grid.Column="1"
                                 HorizontalAlignment="Left"
-                                Text="{Binding Price, StringFormat=' {0} kr.'}"
+                                Text="{Binding Path=Size.Capacity, StringFormat=' {0} kr.'}"
                                 VerticalAlignment="Center"
                                 Width="140" />
 
-                            <ComboBox Grid.Column="2" ItemsSource="{Binding Sizes}">
+                            <ComboBox Grid.Column="2" ItemsSource="{Binding Size}">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
@@ -195,7 +193,6 @@
 
 
                         </Grid>
-
 
 
                     </Grid>
