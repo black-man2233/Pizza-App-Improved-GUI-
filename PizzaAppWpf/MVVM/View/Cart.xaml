@@ -121,7 +121,7 @@
                         Style="{StaticResource CartBtn}">
 
                         <Grid>
-                            <Image Source="file:///C:/Users/Kevin/Downloads/trash.png" />
+                            <Image Source="/Medias/Icons/delete.png" />
                         </Grid>
 
                     </Button>

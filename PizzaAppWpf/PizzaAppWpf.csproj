@@ -51,6 +51,8 @@
     <Resource Include="Medias\Videos\$RIKRFPZ.mp4" />
     <None Remove="Medias\Images\HEhe.png" />
     <Resource Include="Medias\Images\HEhe.png" />
+    <None Remove="Medias\Icons\delete.png" />
+    <Resource Include="Medias\Icons\delete.png" />
   </ItemGroup>
 
   <ItemGroup>
