@@ -60,7 +60,7 @@
                         <Image
                             Grid.Column="0"
                             Margin="0.2,0,10,0"
-                            Source="{Binding imageUrl}" />
+                            Source="{Binding ImageUrl}" />
 
                         <Grid
                             Grid.Column="1"
