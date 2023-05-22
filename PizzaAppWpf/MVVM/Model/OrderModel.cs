@@ -1,53 +1,75 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.Text;
 using PizzaAppWpf.Model;
-
+#pragma warning disable
 namespace PizzaAppWpf.MVVM.Model
 {
     public class OrderModel : ICloneable
     {
-        public string                                                              imageUrl    { get; set; }
-        public int                                                                 Id          { get; set; }
-        public string                                                              Name        { get; set; }
-        public int                                                                 Price       { get; set; }
-        public int                                                                 Total       { get; set; }
-        public string                                                              Description { get; set; }
-        public string                                                              Type        { get; set; }
-        public System.Collections.ObjectModel.ObservableCollection<ToppingsModel>? Toppings    { get; set; }
+        public  string                               ImageUrl    { get; set; }
+        private int                                  Id          { get; set; }
+        public  string                               Name        { get; set; }
+        public  int                                  Price       { get; set; }
+        public  string                               Description { get; set; }
+        public  ObservableCollection<ToppingsModel>? Toppings    { get; set; }
 
 
-        public OrderModel(string u, int i, string n, int p, int t, string d, string type,
-            System.Collections.ObjectModel.ObservableCollection<ToppingsModel>? tp)
+        public OrderModel(string imageUrl, int id, string name, int price, string description,
+            ObservableCollection<ToppingsModel>? toppings)
         {
-            imageUrl = u;
-            Id = i;
-            Name = n;
-            Price = p;
-            Total = t;
-            Description = d;
-            Type = type;
-
-            Toppings = tp;
+            this.ImageUrl = imageUrl;
+            Id = id;
+            Name = name;
+            Price = price;
+            Description = description;
+            Toppings = toppings;
         }
 
+        /// <summary>
+        /// Takes an object and creates a new OrderModel from it, if the object is not a PizzaModel or DrinkModel
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <exception cref="Exception"></exception>
+        public OrderModel(Object obj)
+        {
+            if (obj is PizzaModel p)
+            {
+                new OrderModel(p);
+            }
+            else if (obj is DrinkModel d)
+            {
+                new OrderModel(d);
+            }
+            else
+            {
+                throw new Exception("Invalid object type");
+            }
+        }
 
         public OrderModel(PizzaModel p)
         {
-            this.Type = "PizzaModel";
-            imageUrl = p.imageUrl;
+            this.ImageUrl = p.imageUrl;
             Id = p.Id;
             Name = p.Name;
             Price = p.Price;
-            Description = p.Description;
-            if (p.Toppings is not null)
-            {
-                Toppings = p.Toppings;
-            }
+            Description = Description;
+            Toppings = new();
+        }
+
+        public OrderModel(DrinkModel d)
+        {
+            this.ImageUrl = d.imageUrl;
+            Name = d.Name;
+            Price = d.Price;
+            Description = Description;
+            Toppings =null;
         }
 
         public object Clone()
         {
-            return new OrderModel(this.imageUrl, this.Id, this.Name, this.Price, this.Total, this.Description,
-                this.Type, this.Toppings);
+            return new OrderModel(this.ImageUrl, this.Id, this.Name, this.Price, this.Description,
+                this.Toppings);
         }
     }
 }
