@@ -66,7 +66,7 @@
 
                         <Grid.InputBindings>
                             <MouseBinding
-                                Command="{Binding DataContext.PizzaListDoubleClickCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ItemsControl}}}"
+                                Command="{Binding DataContext.ItemDoubleClickCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ItemsControl}}}"
                                 CommandParameter="{Binding}"
                                 Gesture="LeftDoubleClick" />
                         </Grid.InputBindings>
@@ -134,15 +134,6 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30" />
                         </Grid.RowDefinitions>
-
-                        <Grid.InputBindings>
-                            <MouseBinding
-                                Command="{Binding DataContext.SidezListDoubleClickCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ItemsControl}}}"
-                                CommandParameter="{Binding}"
-                                Gesture="LeftDoubleClick" />
-                        </Grid.InputBindings>
-
-
                         <Image
                             Grid.Column="0"
                             Margin="0.2,0,10,0"
@@ -186,6 +177,14 @@
                                                 FontSize="20"
                                                 Padding="10,0,0,0"
                                                 Text="{Binding Path=Price}" />
+
+                                            <!-- <StackPanel.InputBindings> -->
+                                            <!--  <MouseBinding  -->
+                                            <!--  Command="{Binding  PizzaListDoubleClickCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ItemsControl}}}"  -->
+                                            <!--  CommandParameter="{Binding}"  -->
+                                            <!--  Gesture="LeftDoubleClick" />  -->
+                                            <!-- </StackPanel.InputBindings> -->
+
                                         </StackPanel>
                                     </DataTemplate>
                                 </ComboBox.ItemTemplate>
