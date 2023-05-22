@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using PizzaApp_WPF.Model;
 using PizzaAppWpf.Model;
 using PizzaAppWpf.Utilities;
 using PizzaAppWpf.ViewModel;

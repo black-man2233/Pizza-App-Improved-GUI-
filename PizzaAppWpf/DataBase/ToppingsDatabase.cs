@@ -14,7 +14,6 @@ public partial class Database
 
     public ObservableCollection<ToppingsModel> GetToppings() => _toppings;
 
-
     private void GetToppingsFromDb(SqlConnection connection)
     {
         try

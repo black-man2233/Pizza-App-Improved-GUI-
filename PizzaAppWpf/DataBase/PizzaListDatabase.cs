@@ -16,6 +16,8 @@ partial class Database
     //PizzaList
     private ObservableCollection<PizzaModel>? _pizzaList = new();
 
+    public ObservableCollection<PizzaModel> GetAllPizzas() => this._pizzaList;
+
     /// <summary>
     /// Get all pizzas from database
     /// </summary>
@@ -53,9 +55,7 @@ partial class Database
             connection.Close();
         }
     }
-
-    public ObservableCollection<PizzaModel> GetAllPizzas() => this._pizzaList;
-
+    
     private void addPizzasToDBFromJson(string jsonFilePath, string dataSource, string catalog,
         bool integratedSecurity)
     {
