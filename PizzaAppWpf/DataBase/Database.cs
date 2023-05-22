@@ -18,6 +18,7 @@ namespace PizzaAppWpf.DataBase
             Instance.GetPizzasFromDb(Instance.GetConnection());
             Instance.GetToppingsFromDb(Instance.GetConnection());
             Instance.GetDrinksFromDB(Instance.GetConnection());
+            Instance.GetCapacitiesFromDB(Instance.GetConnection());
         }
 
         private SqlConnection GetConnection()
