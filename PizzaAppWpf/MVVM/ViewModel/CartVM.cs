@@ -33,29 +33,11 @@ namespace PizzaAppWpf.MVVM.ViewModel
         #region Command Functions
         void EditPizza(object sender)
         {
-            if (sender is not null)
-            {
-                if (sender is OrderModel o)
-                    if (o.Type is "PizzaModel")
-                    {
-                        EditWindow editWindow = new(o);
-                        editWindow.ShowDialog();
-                    }
-                    else
-                        MessageBox.Show("Vælge en venligste en Pizza");
-            }
-            else
-                MessageBox.Show("Vælge venligste et item fra listen");
-
+            MessageBox.Show("Edit Pizza");
         }
         void Delete(object sender)
         {
-            if (sender is not null)
-                if (sender is OrderModel o)
-                {
-                    MenuVM._cart.Remove(o);
-                    this.CartItems.Remove(o);
-                }
+            MessageBox.Show("Delete Pizza");
 
         }
         #endregion

@@ -60,7 +60,7 @@ namespace PizzaAppWpf.MVVM.ViewModel
 
         private void AddToCart(Object sender)
         {
-            MessageBox.Show("Add to cart");
+            _cart.Add(new(sender));
         }
 
         public MenuVM()
