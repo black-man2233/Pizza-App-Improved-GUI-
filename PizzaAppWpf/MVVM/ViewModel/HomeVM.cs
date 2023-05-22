@@ -12,26 +12,10 @@ namespace PizzaAppWpf.ViewModel
 
         void VideoClicked(object sender)
         {
-            if (sender is not null)
-                if (sender is MainWindow mw)
-                {
-                    if (mw.DataContext is NavigationVM nvm)
-                    {
-                        mw.MenuBtn.IsChecked = true;
-                        nvm.CurrentView = new MenuVM();
-                    }
-                }
-        }
-
-        void VideoEnded(object sender)
-        {
-            if (sender is not null)
-                if (sender is MediaElement m)
-                {
-                    m.LoadedBehavior = MediaState.Manual;
-                    m.Position = new TimeSpan(0, 0, 1);
-                    m.Play();
-                }
+            if (sender is HomeVM vm)
+            {
+               
+            }
         }
 
         public HomeVM()
